@@ -9,6 +9,6 @@ class GenderFilter(
 ) : Filter {
 
     override fun applyFilter(): Boolean =
-        gender != systemState.gender
+        gender == systemState.gender
 
 }

@@ -40,7 +40,12 @@ class ParserInputData(
         val data: Map<String, String> = getParams(countLine)
 
         if (data.containsKey("text") && data.containsKey("type")) {
-            return EasyFactoryPush.createPush(data["type"]!!, systemState, data)
+            try {
+                return EasyFactoryPush.createPush(data["type"]!!, systemState, data)
+            } catch (ex: Exception) {
+                throw Exception("EasyFactoryPush: ошибка получения параметров пушей")
+            }
+
         }
 
         throw Exception("Ошибка ввода пуша. Отсутствует один из параметров text или type")
@@ -67,15 +72,17 @@ class ParserInputData(
 
         val data: Map<String, String> = getParams(SYSTEM_DATA)
 
-        //Можно проверить на null на всякий случай, но есть ли в этом смысл
-        //Если какого-то параметра нет, то приложение работать не должно
-        //Хотя с другой стороны должно ли оно крашиться
-        return SystemState(time = data["time"]!!.toLong(),
-                           age = data["age"]!!.toInt(),
-                           gender = data["gender"]!![0],
-                           osVersion = data["os_version"]!!.toInt(),
-                           xCoord = data["x_coord"]!!.toFloat(),
-                           yCoord = data["y_coord"]!!.toFloat())
+        try {
+            return SystemState(time = data["time"]!!.toLong(),
+                               age = data["age"]!!.toInt(),
+                               gender = data["gender"]!![0],
+                               osVersion = data["os_version"]!!.toInt(),
+                               xCoord = data["x_coord"]!!.toFloat(),
+                               yCoord = data["y_coord"]!!.toFloat())
+        } catch (ex: Exception) {
+            throw Exception("ParserInputData: ошибка получения данных системы")
+        }
+
     }
 
     private fun getIntValue(): Int {

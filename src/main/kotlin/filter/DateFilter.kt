@@ -9,6 +9,6 @@ class DateFilter(
 ) : Filter {
 
     override fun applyFilter(): Boolean =
-        expiryDate > systemState.time
+        expiryDate < systemState.time
 
 }

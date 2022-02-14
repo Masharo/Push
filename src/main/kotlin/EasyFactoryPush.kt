@@ -5,7 +5,9 @@ import java.lang.Exception
 object EasyFactoryPush {
 
     fun createPush(pushString: String, systemState: SystemState, data: Map<String, String>): Push =
+
         when (pushString) {
+
             LocationPush.TYPE -> LocationPush(
                                             systemState = systemState,
                                             text = data["text"]!!,
