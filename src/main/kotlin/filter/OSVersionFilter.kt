@@ -10,6 +10,6 @@ class OSVersionFilter(
 ) : Filter {
 
     override fun applyFilter(): Boolean =
-        osVersion <= systemState.osVersion
+        osVersion < systemState.osVersion
 
 }

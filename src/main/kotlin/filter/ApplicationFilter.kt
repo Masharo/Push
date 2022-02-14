@@ -14,6 +14,6 @@ class ApplicationFilter(
 
     override fun applyFilter(): Boolean {
         val result = sqrt((systemState.xCoord - xCoord).pow(2) + (systemState.yCoord - yCoord).pow(2))
-        return result <= radius
+        return result > radius
     }
 }

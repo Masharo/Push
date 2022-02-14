@@ -19,6 +19,9 @@ class ParserInputData(
 
             val pus = getPush(systemState).applyFilters()
             pus?.let {
+                if (result.isNotEmpty()) {
+                    result.append("\n")
+                }
                 result.append(it)
             }
 

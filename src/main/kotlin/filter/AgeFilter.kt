@@ -9,6 +9,6 @@ class AgeFilter(
 ) : Filter {
 
     override fun applyFilter(): Boolean =
-        age <= systemState.age
+        age > systemState.age
 
 }
