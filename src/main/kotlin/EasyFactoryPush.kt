@@ -10,43 +10,43 @@ object EasyFactoryPush {
 
             LocationPush.TYPE -> LocationPush(
                                             systemState = systemState,
-                                            text = data["text"]!!,
-                                            xCoord = data["x_coord"]!!.toFloat(),
-                                            yCoord = data["y_coord"]!!.toFloat(),
-                                            radius = data["radius"]!!.toInt(),
-                                            expiryDate = data["expiry_date"]!!.toLong())
+                                            text = data[GeneralNomenclature.TEXT]!!,
+                                            xCoord = data[GeneralNomenclature.X_COORD]!!.toFloat(),
+                                            yCoord = data[GeneralNomenclature.Y_COORD]!!.toFloat(),
+                                            radius = data[GeneralNomenclature.RADIUS]!!.toInt(),
+                                            expiryDate = data[GeneralNomenclature.EXPIRY_DATE]!!.toLong())
 
             AgeSpecificPush.TYPE -> AgeSpecificPush(
                                             systemState = systemState,
-                                            text = data["text"]!!,
-                                            age = data["age"]!!.toInt(),
-                                            expiryDate = data["expiryDate"]!!.toLong())
+                                            text = data[GeneralNomenclature.TEXT]!!,
+                                            age = data[GeneralNomenclature.AGE]!!.toInt(),
+                                            expiryDate = data[GeneralNomenclature.EXPIRY_DATE]!!.toLong())
 
             TechPush.TYPE -> TechPush(
                                             systemState = systemState,
-                                            text = data["text"]!!,
-                                            osVersion = data["os_version"]!!.toInt())
+                                            text = data[GeneralNomenclature.TEXT]!!,
+                                            osVersion = data[GeneralNomenclature.OS_VERSION]!!.toInt())
 
             LocationAgePush.TYPE -> LocationAgePush(
                                             systemState = systemState,
-                                            text = data["text"]!!,
-                                            xCoord = data["x_coord"]!!.toFloat(),
-                                            yCoord = data["y_coord"]!!.toFloat(),
-                                            radius = data["radius"]!!.toInt(),
-                                            age = data["age"]!!.toInt())
+                                            text = data[GeneralNomenclature.TEXT]!!,
+                                            xCoord = data[GeneralNomenclature.X_COORD]!!.toFloat(),
+                                            yCoord = data[GeneralNomenclature.Y_COORD]!!.toFloat(),
+                                            radius = data[GeneralNomenclature.RADIUS]!!.toInt(),
+                                            age = data[GeneralNomenclature.AGE]!!.toInt())
 
             GenderAgePush.TYPE -> GenderAgePush(
                                             systemState = systemState,
-                                            text = data["text"]!!,
-                                            age = data["age"]!!.toInt(),
-                                            gender = data["gender"]!![0])
+                                            text = data[GeneralNomenclature.TEXT]!!,
+                                            age = data[GeneralNomenclature.AGE]!!.toInt(),
+                                            gender = data[GeneralNomenclature.GENDER]!![0])
 
             GenderPush.TYPE -> GenderPush(
                                             systemState = systemState,
-                                            text = data["text"]!!,
-                                            gender = data["gender"]!![0])
+                                            text = data[GeneralNomenclature.TEXT]!!,
+                                            gender = data[GeneralNomenclature.GENDER]!![0])
 
-            else -> throw Exception("Пуш отсутсвует в EasyFactoryPush")
+            else -> throw Exception()
         }
 
 }

@@ -73,12 +73,12 @@ class ParserInputData(
         val data: Map<String, String> = getParams(SYSTEM_DATA)
 
         try {
-            return SystemState(time = data["time"]!!.toLong(),
-                               age = data["age"]!!.toInt(),
-                               gender = data["gender"]!![0],
-                               osVersion = data["os_version"]!!.toInt(),
-                               xCoord = data["x_coord"]!!.toFloat(),
-                               yCoord = data["y_coord"]!!.toFloat())
+            return SystemState(time = data[GeneralNomenclature.TIME]!!.toLong(),
+                               age = data[GeneralNomenclature.AGE]!!.toInt(),
+                               gender = data[GeneralNomenclature.GENDER]!![0],
+                               osVersion = data[GeneralNomenclature.OS_VERSION]!!.toInt(),
+                               xCoord = data[GeneralNomenclature.X_COORD]!!.toFloat(),
+                               yCoord = data[GeneralNomenclature.Y_COORD]!!.toFloat())
         } catch (ex: Exception) {
             throw Exception("ParserInputData: ошибка получения данных системы")
         }
