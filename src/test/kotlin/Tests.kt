@@ -1,6 +1,7 @@
+import com.masharo.push.ParserInputData
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
-import reader.TestReader
+import com.masharo.push.reader.TestReader
 
 class Tests {
 
